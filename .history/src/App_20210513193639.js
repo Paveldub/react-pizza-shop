@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Header, Categories } from './components';
 
 function App() {

@@ -5,7 +5,7 @@ export const Button = (props) => {
   return (
     <>
       <div className="header__cart">
-        <button href="/cart.html" className="button button--cart">
+        <a href="/cart.html" className="button button--cart">
           <span>5209 ₽</span>
           <div className="button__delimiter"></div>
           <svg

@@ -1,5 +1,4 @@
-import React from 'react';
-import { Header, Categories } from './components';
+import { Header } from './components/Header/Header';
 
 function App() {
   return (
@@ -8,7 +7,7 @@ function App() {
       <div className="content">
         <div className="container">
           <div className="content__top">
-            <Categories />
+            
             <div className="sort">
               <div className="sort__label">
                 <svg

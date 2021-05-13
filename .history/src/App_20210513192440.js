@@ -1,5 +1,7 @@
 import React from 'react';
-import { Header, Categories } from './components';
+
+import { Header } from './components/Header/Header';
+import { Categories } from './components/Categories/Categories';
 
 function App() {
   return (
