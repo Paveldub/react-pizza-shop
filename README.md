@@ -1,8 +1,9 @@
 Stack:
 
-1. ReactJS + хуки
-2. React Router
-3. Redux
-4. Redux thunk
-5. json-server
-6. Axios
+1. React
+2. React hooks
+3. React Router
+4. Redux
+5. Redux thunk
+6. json-server
+7. Axios
