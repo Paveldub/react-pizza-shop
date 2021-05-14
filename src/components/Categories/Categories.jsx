@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Categories = ({ items, onClickItem }) => {
+const Categories = ({ items }) => {
 
   const [activeItem, setActiveItem] = useState(null);
 
@@ -20,8 +20,8 @@ const Categories = ({ items, onClickItem }) => {
         {items && items.map((name, index) => {
           return (
             <li
-              className={activeItem === index ? 'active' : ''}
               onClick={() => activeItemHandler(index)}
+              className={activeItem === index ? 'active' : ''}
               key={`${name}_${index}`}
             >
               {name}
