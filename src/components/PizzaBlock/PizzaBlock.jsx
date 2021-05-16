@@ -1,19 +1,58 @@
-import React from 'react';
+import React, { useState } from 'react';
+import classNames from 'classnames';
 
-const PizzaBlock = ({ name, imageUrl, price, sizes }) => {
+const PizzaBlock = ({ name, imageUrl, price, types, sizes }) => {
+  const avaliableTypes = ['тонкое', 'традиционное'];
+  const avaliableSizes = [26, 30, 40];
+
+  const [activeType, setActiveType] = useState(types[0]);
+  const [activeSize, setActiveSize] = useState(sizes[0]);
+
+  const typesHandler = (index) => {
+    setActiveType(index);
+  }
+
+  const sizeHandler = (index) => {
+    setActiveSize(index);
+  }
+
   return (
     <div className="pizza-block">
       <img className="pizza-block__image" src={imageUrl} alt="Pizza" />
       <h4 className="pizza-block__title">{name}</h4>
       <div className="pizza-block__selector">
         <ul>
-          <li className="active">тонкое</li>
-          <li>традиционное</li>
+          {avaliableTypes &&
+            avaliableTypes.map((type, index) => {
+              return (
+                <li
+                  onClick={() => typesHandler(index)}
+                  className={classNames({
+                    active: activeType === index,
+                    disabled: !types.includes(index),
+                  })}
+                  key={type}
+                >
+                  {type}
+                </li>
+              );
+            })}
         </ul>
         <ul>
-          <li className="active">12 см.</li>
-          <li>30 см.</li>
-          <li>40 см.</li>
+          {avaliableSizes && avaliableSizes.map((size, index) => {
+            return (
+              <li
+                onClick={() => sizeHandler(index)}
+                className={classNames({
+                  active: activeSize === index,
+                  disabled: !sizes.includes(size),
+                })}
+                key={size}
+              >
+                {size} см.
+              </li>
+            );
+          })}
         </ul>
       </div>
       <div className="pizza-block__bottom">

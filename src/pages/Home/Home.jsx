@@ -3,7 +3,6 @@ import { Categories, SortPopup, PizzaBlock } from '../../components';
 
 const Home = ({items}) => {
 
- 
   return (
     <div className="container">
       <div className="content__top">
@@ -18,10 +17,7 @@ const Home = ({items}) => {
           return (
             <PizzaBlock
               key={item.id}
-              name={item.name}
-              imageUrl={item.imageUrl}
-              price={item.price}
-              sizes={item.sizes}
+              {...item}
             />
           );
         })}
