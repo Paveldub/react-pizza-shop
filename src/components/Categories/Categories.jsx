@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 
-const Categories = ({ items }) => {
-
+const Categories = React.memo(function Categories({ items, onClickItem }) {
   const [activeItem, setActiveItem] = useState(null);
 
   const activeItemHandler = (index) => {
     setActiveItem(index);
-  }
-  
+    onClickItem(index);
+  };
+
   return (
     <div className="categories">
       <ul>
@@ -17,21 +17,21 @@ const Categories = ({ items }) => {
         >
           Все
         </li>
-        {items && items.map((name, index) => {
-          return (
-            <li
-              onClick={() => activeItemHandler(index)}
-              className={activeItem === index ? 'active' : ''}
-              key={`${name}_${index}`}
-            >
-              {name}
-            </li>
-          );
-        })}
+        {items &&
+          items.map((name, index) => {
+            return (
+              <li
+                onClick={() => activeItemHandler(index)}
+                className={activeItem === index ? 'active' : ''}
+                key={`${name}_${index}`}
+              >
+                {name}
+              </li>
+            );
+          })}
       </ul>
     </div>
   );
-};
+});
 
 export default Categories;
- 
