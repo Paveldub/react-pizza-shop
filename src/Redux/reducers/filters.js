@@ -1,3 +1,5 @@
+import { SET_SORT_BY, SET_CATEGORY } from '../types/types';
+
 const initialState = {
   category: 0,
   sortBy: 'popular',
@@ -6,12 +8,12 @@ const initialState = {
 const filters = (state = initialState, action) => {
   // eslint-disable-next-line default-case
   switch (action.type) {
-    case 'SET_SORT_BY':
+    case SET_SORT_BY:
       return {
         ...state,
         sortBy: action.payload,
       };
-    case 'SET_CATEGORY':
+    case SET_CATEGORY:
       return {
         ...state,
         category: action.payload,

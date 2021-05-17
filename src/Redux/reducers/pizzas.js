@@ -1,16 +1,18 @@
+import { SET_PIZZAS } from '../types/types';
+
 const initialState = {
   items: [],
-  isLoaded: false
+  isLoaded: false,
 };
 
 const pizzas = (state = initialState, action) => {
   // eslint-disable-next-line default-case
   switch (action.type) {
-    case 'SET_PIZZAS':
+    case SET_PIZZAS:
       return {
         ...state,
         items: action.payload,
-        isLoaded: true
+        isLoaded: true,
       };
     default:
       return state;
