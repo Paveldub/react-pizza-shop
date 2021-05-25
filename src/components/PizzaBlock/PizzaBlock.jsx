@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-
 import classNames from 'classnames';
+import { Loader } from './PizzaLoader';
 
 const PizzaBlock = ({ name, imageUrl, price, types, sizes }) => {
   const avaliableTypes = ['тонкое', 'традиционное'];
@@ -11,11 +11,11 @@ const PizzaBlock = ({ name, imageUrl, price, types, sizes }) => {
 
   const typesHandler = (index) => {
     setActiveType(index);
-  }
+  };
 
   const sizeHandler = (index) => {
     setActiveSize(index);
-  }
+  };
 
   return (
     <div className="pizza-block">
@@ -40,20 +40,21 @@ const PizzaBlock = ({ name, imageUrl, price, types, sizes }) => {
             })}
         </ul>
         <ul>
-          {avaliableSizes && avaliableSizes.map((size, index) => {
-            return (
-              <li
-                onClick={() => sizeHandler(index)}
-                className={classNames({
-                  active: activeSize === index,
-                  disabled: !sizes.includes(size),
-                })}
-                key={size}
-              >
-                {size} см.
-              </li>
-            );
-          })}
+          {avaliableSizes &&
+            avaliableSizes.map((size, index) => {
+              return (
+                <li
+                  onClick={() => sizeHandler(index)}
+                  className={classNames({
+                    active: activeSize === index,
+                    disabled: !sizes.includes(size),
+                  })}
+                  key={size}
+                >
+                  {size} см.
+                </li>
+              );
+            })}
         </ul>
       </div>
       <div className="pizza-block__bottom">
