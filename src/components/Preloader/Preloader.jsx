@@ -1,11 +1,14 @@
 import React from 'react'
+import './Preloader.scss';
 
 const Preloader = () => {
   return (
-    <div>
-      
+    <div className="preloader-wrap">
+      <div className="lds-circle">
+        <div></div>
+      </div>
     </div>
-  )
+  );
 }
 
-export default Preloader
+export default Preloader;
