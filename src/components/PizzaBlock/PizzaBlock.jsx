@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
-import { Loader } from './PizzaLoader';
 
 const PizzaBlock = ({ name, imageUrl, price, types, sizes }) => {
   const avaliableTypes = ['тонкое', 'традиционное'];
