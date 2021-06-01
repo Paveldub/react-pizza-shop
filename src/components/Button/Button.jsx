@@ -10,7 +10,7 @@ const Button = ({ outline, className, onClick, children }) => {
           'button--outline': outline,
         })}
       >
-        {children}
+        {children} 
       </button>
     </>
   );

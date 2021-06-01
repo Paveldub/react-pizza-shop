@@ -4,6 +4,8 @@ import { setCategory, setSortBy } from '../../Redux/actions/filters';
 import { Categories, SortPopup, PizzaBlock, Preloader } from '../../components';
 import { fetchPizzas } from '../../api/api';
 
+import { addPizzaToCart } from '../../Redux/actions/cart';
+
 const categoryNames = [
   'Мясные',
   'Вегетарианская',
@@ -11,6 +13,7 @@ const categoryNames = [
   'Острые',
   'Закрытые',
 ];
+
 const sortItems = [
   { name: 'Популярности', type: 'popular', order: 'desc' },
   { name: 'Цене', type: 'price', order: 'desc' },
@@ -35,6 +38,11 @@ const Home = () => {
     dispatch(setSortBy(type));
   }, []);
 
+  const handleAddPizzaToCart = (obj) => {
+    dispatch(addPizzaToCart(obj));
+  };
+
+
   return (
     <div className="container">
       <div className="content__top">
@@ -52,8 +60,15 @@ const Home = () => {
       <h2 className="content__title">Все пиццы</h2>
       <div className="content__items">
         {isLoaded ? (
-          items.map((item) => {
-            return <PizzaBlock key={item.id} {...item} isLoading={true} />;
+          items.map((obj) => {
+            return (
+              <PizzaBlock
+                onClickAddPizza={handleAddPizzaToCart}
+                key={obj.id}
+                addPizzaToCart
+                {...obj}
+              />
+            );
           })
         ) : (
           <Preloader />
