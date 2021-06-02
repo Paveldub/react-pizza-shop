@@ -10,6 +10,7 @@ const PizzaBlock = ({
   types,
   sizes,
   onClickAddPizza,
+  addedCount,
 }) => {
   const avaliableTypes = ['тонкое', 'традиционное'];
   const avaliableSizes = [26, 30, 40];
@@ -36,7 +37,7 @@ const PizzaBlock = ({
     };
 
     onClickAddPizza(obj);
-  }
+  };
 
   return (
     <div className="pizza-block">
@@ -94,7 +95,7 @@ const PizzaBlock = ({
             />
           </svg>
           <span>Добавить</span>
-          <i>2</i>
+          {addedCount && <i>{addedCount}</i>}
         </Button>
       </div>
     </div>

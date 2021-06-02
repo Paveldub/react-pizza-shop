@@ -23,8 +23,10 @@ const sortItems = [
 const Home = () => {
   const dispatch = useDispatch();
   const items = useSelector(({ pizzas }) => pizzas.items);
+  const carTitems = useSelector(({ cart }) => cart.items);
   const isLoaded = useSelector(({ pizzas }) => pizzas.isLoaded);
   const { category, sortBy } = useSelector(({ filters }) => filters);
+
 
   useEffect(() => {
     dispatch(fetchPizzas(sortBy, category));
@@ -67,6 +69,7 @@ const Home = () => {
                 key={obj.id}
                 addPizzaToCart
                 {...obj}
+                addedCount={carTitems[obj.id] && carTitems[obj.id].length}
               />
             );
           })
